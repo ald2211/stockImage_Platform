@@ -3,12 +3,17 @@ import dotenv from 'dotenv'
 import authRouter from './routes/auth.route.js'
 import imageRouter from './routes/image.route.js'
 import connectDB from './config/dbConnection.js'
+import path from 'path'
 
 
 dotenv.config()
 const app=express()
 
 connectDB();
+
+app.use(express.json());
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, 'api/uploads')));
 
 app.use('/api/v1/auth',authRouter);
 app.use('/api/v1/image',imageRouter);

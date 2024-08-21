@@ -1,10 +1,16 @@
 import express from 'express';
-import { checkingAuthRoute } from '../controllers/auth.controller.js';
+import { login, register, resetPassword } from '../controllers/auth.controller.js';
 
 const router= express.Router()
 
-router.get('/authRouteChecking',checkingAuthRoute)
+// Register route
+router.post('/register', register);
 
+// Login route
+router.post('/login', login);
+
+// Password reset route
+router.post('/reset-password', resetPassword);
 
 
 

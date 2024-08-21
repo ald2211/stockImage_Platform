@@ -1,9 +1,22 @@
 import express from 'express';
-import { checkingImageRoute } from '../controllers/image.controller.js';
+import { addImages, deleteImage, editImage, rearrangeImages, uploadImages } from '../controllers/image.controller.js';
+import verifyUser from '../utils/verify.js';
+
 
 const router= express.Router()
 
-router.get('/imageRouteChecking',checkingImageRoute)
+
+// Upload images route
+router.post('/upload', verifyUser, uploadImages, addImages);
+
+// Rearrange images route
+router.put('/rearrange', verifyUser, rearrangeImages);
+
+// Edit image route
+router.put('/edit/:id', verifyUser, editImage);
+
+// Delete image route
+router.delete('/delete/:id', verifyUser, deleteImage);
 
 
 export default router
