@@ -16,7 +16,7 @@ connectDB()
 
 app.use(express.json())
 const __dirname = path.resolve()
-app.use('/uploads', express.static(path.join(__dirname, '/api/uploads')))
+app.use('/uploads', express.static(path.join(__dirname, 'api/uploads')))
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/image', imageRouter)
