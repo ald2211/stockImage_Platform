@@ -1,10 +1,12 @@
 import express from 'express';
-import { addImages, deleteImage, editImage, rearrangeImages, uploadImages } from '../controllers/image.controller.js';
+import { addImages, deleteImage, editImage, rearrangeImages, uploadImages,getImages } from '../controllers/image.controller.js';
 import verifyUser from '../utils/verify.js';
 
 
 const router= express.Router()
 
+// get all images
+router.get('/getImages',verifyUser,getImages)
 
 // Upload images route
 router.post('/upload', verifyUser, uploadImages, addImages);

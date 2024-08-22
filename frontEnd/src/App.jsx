@@ -1,15 +1,29 @@
-import { useState } from 'react'
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
+import ProtectedRoute from './components/privateRoutes/ProtectedRoute';
+import AuthRoute from './components/privateRoutes/AuthRoute';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
   return (
-    <>
-      <div className='absolute top-1/2 left-1/2 text-red-700 text-xl'>
-        working
-      </div>
-    </>
-  )
-}
+    <Routes>
+          <Route element={<AuthRoute />}>
+          <Route path="/" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          </Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<DashboardPage />} />
+           
+            <Route path="/resetPassword" element={<ResetPasswordPage />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/dashboard" />} />
+        
+    </Routes>
+  );
+};
 
-export default App
+export default App;
