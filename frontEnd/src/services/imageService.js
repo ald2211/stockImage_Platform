@@ -7,7 +7,7 @@ const API_URL = 'https://stockimage-platform.onrender.com/api/v1/image/';
 const uploadImages = async (imagesData) => { 
   const token = localStorage.getItem('token');
   const config = { headers: { Authorization: `Bearer ${token}` } };
-  const response = await axios.post(API_URL + 'upload', imagesData, config);
+  const response = await axios.post(API_URL + 'upload', {imagesData}, config);
   return response.data;
 };
 
