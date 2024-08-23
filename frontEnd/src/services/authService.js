@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://stockimage-platform-1.onrender.com/api/v1/auth/';
+const API_URL = 'https://stockimage-platform.onrender.com/api/v1/auth/';
 
 const register = async (userData) => {
   const response = await axios.post(API_URL + 'register', userData);
