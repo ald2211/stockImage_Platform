@@ -78,7 +78,7 @@ const ImageList = () => {
                     >
                       <div className="w-full h-auto flex justify-center items-center overflow-hidden">
                         <img 
-                          src={image.imageUrl} 
+                          src={image.imageUrl?.slice(21)} 
                           alt={image.title} 
                           className="max-w-full max-h-60 object-contain"
                         />
