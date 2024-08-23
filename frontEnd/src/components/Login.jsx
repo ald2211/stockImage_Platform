@@ -72,7 +72,7 @@ const Login = () => {
           className="w-full bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
           disabled={formik.isSubmitting}
         >
-          Login
+          {formik.isSubmitting?'submiting...':'Login'}
         </button>
         <div className="text-center mt-4">
           <span className="text-gray-700">Don't have an account? </span>
