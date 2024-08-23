@@ -37,7 +37,7 @@ export const addImages = async (req, res,next) => {
   try {
     const images = req.files.map((file, index) => ({
       title: Array.isArray(titles) ? titles[index] : titles,
-      imageUrl: `/uploads/${file.filename}`,
+      imageUrl: `https://stockimage-platform-1.onrender.com/uploads/${file.filename}`,
       user: user.id,
       order: index,
     }));

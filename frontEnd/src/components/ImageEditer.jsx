@@ -52,7 +52,7 @@ const ImageEditor = ({ image, setUserImages, userImages,setEditingImage }) => {
     <div className="p-4 bg-white  shadow-md absolute z-50 top-0 w-full">
       <div className="max-w-full h-[375px] overflow-hidden mb-4 rounded">
   <img 
-    src={`http://localhost:3000${image.imageUrl}`} 
+    src={image.imageUrl} 
     alt={image.title} 
     className="w-full h-full object-contain"
   />
