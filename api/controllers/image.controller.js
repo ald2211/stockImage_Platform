@@ -1,19 +1,39 @@
 import Image from '../models/image.model.js';
-import multer from 'multer';
-import path from 'path';
 import { errorHandler } from '../utils/customError.js';
 
-// Multer config for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'api/uploads/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
-  },
-});
 
-const upload = multer({ storage });
+
+export const addImages = async (req, res, next) => {
+  const { imagesData } = req.body; 
+  const { user } = req;
+
+  try {
+    if (!imagesData || imagesData.length === 0) {
+      throw new Error('No image data provided');
+    }
+
+    // Process the images array
+    const processedImages = imagesData.map((image, index) => ({
+      title: image.title,
+      imageUrl: image.url,
+      user: user.id,
+      order: index,
+    }));
+
+    // Insert the processed images into the database
+    await Image.insertMany(processedImages);
+
+    // Retrieve and return the updated list of images for the user
+    const userImages = await Image.find({ user: user.id }).sort({ order: 1 });
+
+    res.json({ msg: 'Images uploaded successfully', userImages });
+  } catch (error) {
+    console.error('Error during image upload:', error.message);
+    next(errorHandler(500, `Server error: ${error.message}`));
+  }
+};
+
+
 
 export const getImages=async (req,res,next)=>{
   try{
@@ -27,29 +47,6 @@ export const getImages=async (req,res,next)=>{
     next(500,'server error')
   }
 }
-export const uploadImages = upload.array('images', 10); // Allow up to 10 images
-
-export const addImages = async (req, res,next) => {
-  const { titles } = req.body; 
-  console.log('titles:',titles)
-  const { user } = req;
-
-  try {
-    const images = req.files.map((file, index) => ({
-      title: Array.isArray(titles) ? titles[index] : titles,
-      imageUrl: `https://stockimage-platform-1.onrender.com/uploads/${file.filename}`,
-      user: user.id,
-      order: index,
-    }));
-
-    await Image.insertMany(images);
-    const userImages = await Image.find({ user: user.id }).sort({ order: 1 });
-    res.json({ msg: 'Images uploaded successfully' ,userImages});
-  } catch (error) {
-  
-    next(errorHandler(500,'server error'))
-  }
-};
 
 export const rearrangeImages = async (req, res,next) => {
   const { imageOrder } = req.body; 

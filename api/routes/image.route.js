@@ -1,5 +1,5 @@
 import express from 'express';
-import { addImages, deleteImage, editImage, rearrangeImages, uploadImages,getImages } from '../controllers/image.controller.js';
+import { addImages, deleteImage, editImage, rearrangeImages,getImages } from '../controllers/image.controller.js';
 import verifyUser from '../utils/verify.js';
 
 
@@ -9,7 +9,7 @@ const router= express.Router()
 router.get('/getImages',verifyUser,getImages)
 
 // Upload images route
-router.post('/upload', verifyUser, uploadImages, addImages);
+router.post('/upload', verifyUser, addImages);
 
 // Rearrange images route
 router.put('/rearrange', verifyUser, rearrangeImages);
