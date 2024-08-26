@@ -67,11 +67,12 @@ Follow these steps to set up the application locally.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ald2211/stockImage_Platform.git
-cd stockImage_Platform-main
+
 # Clone the repository
 git clone https://github.com/ald2211/stockImage_Platform.git
 cd stockImage_Platform-main
+
+```
 
 ### 2. Install dependencies
 
