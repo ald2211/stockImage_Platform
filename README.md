@@ -2,6 +2,8 @@
 
 ### Image Management Application
 
+[**Live Application Link**](https://stockimage-platform.onrender.com/)
+
 This application allows users to register, log in, and manage images by uploading, editing, deleting, and rearranging them. Users can add titles to their images, perform bulk uploads, and rearrange images using drag-and-drop functionality.
 
 ## Table of Contents
@@ -18,9 +20,12 @@ This application allows users to register, log in, and manage images by uploadin
   - [Set Up Environment Variables](#3-set-up-environment-variables)
   - [Run the Application](#4-run-the-application)
 - [API Endpoints](#api-endpoints)
-  - [User Authentication](#user-authentication-1)
-  - [Image Management](#image-management-1)
+  - [User Authentication](#user-authentication)
+  - [Image Management](#image-management)
+  - [Reset Password](#reset-password)
 - [Usage](#usage)
+- [Live Link](#live-link)
+- [Contact](#contact)
 
 ## Overview
 
@@ -102,6 +107,23 @@ Create a `.env` file in the root folder with the following content:
 >root folder
 npm start
 
+## API Endpoints
+
+### User Authentication
+- **Register**: `POST /api/v1/auth/register`
+- **Login**: `POST /api/v1/auth/login`
+- **Reset Password**: `POST /api/v1/auth/reset-password`
+
+### Image Management
+- **Fetch Images**: `GET /api/v1/image/getImages`
+- **Upload Images**: `POST /api/v1/image/upload`
+- **Rearrange Images**: `PUT /api/v1/image/rearrange`
+- **Edit Image**: `PUT /api/v1/image/edit/:id`
+- **Delete Image**: `DELETE /api/v1/image/delete/:id`
+
+### Reset Password
+- **Reset Password**: `POST /api/user/resetPassword`
+  
 ## Usage
 
 1. **Register**: Create a new account using your email, phone number, and password.
@@ -114,6 +136,12 @@ npm start
    - Save the new order to preserve the arrangement.
 5. **Edit Images**: Modify the title of any uploaded image after it has been uploaded.
 6. **Delete Images**: Remove unwanted images from your collection easily.
+
+
+## Live Link
+
+You can access the live version of the application at [Live Application Link](https://stockimage-platform.onrender.com/)
+
 
 ## Contact
 
