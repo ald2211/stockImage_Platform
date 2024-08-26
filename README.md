@@ -112,7 +112,6 @@ npm start
 ### User Authentication
 - **Register**: `POST /api/v1/auth/register`
 - **Login**: `POST /api/v1/auth/login`
-- **Reset Password**: `POST /api/v1/auth/reset-password`
 
 ### Image Management
 - **Fetch Images**: `GET /api/v1/image/getImages`
