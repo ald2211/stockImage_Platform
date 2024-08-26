@@ -85,16 +85,17 @@ npm install
 
 ### 3. Set up environment variables
 
-## create .env file in the root folder
-MONGO_URI="Your MongoDB Atlas URI"
-PORT=3000
-JWT_SECRET='Your JWT Secret'
-VITE_FIREBASE_API_KEY="Your Firebase API Key"
-VITE_FIREBASE_APP_ID="Your Firebase App ID"
-VITE_FIREBASE_AUTH_DOMAIN="Your Firebase Auth Domain"
-VITE_FIREBASE_PROJECT_ID="Your Firebase Project ID"
-VITE_FIREBASE_STORAGE_BUCKET="Your Firebase Storage Bucket"
-VITE_FIREBASE_MESSAGINGSENDER_ID="Your Firebase Messaging Sender ID"
+Create a `.env` file in the root folder with the following content:
+
+- **MONGO_URI**: Your MongoDB Atlas URI
+- **PORT**: 3000
+- **JWT_SECRET**: Your JWT Secret
+- **VITE_FIREBASE_API_KEY**: Your Firebase API Key
+- **VITE_FIREBASE_APP_ID**: Your Firebase App ID
+- **VITE_FIREBASE_AUTH_DOMAIN**: Your Firebase Auth Domain
+- **VITE_FIREBASE_PROJECT_ID**: Your Firebase Project ID
+- **VITE_FIREBASE_STORAGE_BUCKET**: Your Firebase Storage Bucket
+- **VITE_FIREBASE_MESSAGINGSENDER_ID**: Your Firebase Messaging Sender ID
 
 ### 4. Run the application
 
